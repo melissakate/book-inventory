@@ -1,0 +1,35 @@
+%h1
+  List of Products
+%br
+= link_to "Add New Product" ,new_product_path  
+%br
+%br
+%table
+  %tr
+    %td Title
+    %td Description
+    %td Author
+    %td Publisher
+    %td Price
+    %td Purchased On
+    %td Purchased At
+    %td Borrowed
+  - @products.each do |product|
+    %tr 
+      %td 
+        = product.title
+      %td
+        = product.description
+      %td
+        = product.author
+      %td
+        = product.publisher
+      %td
+        = product.price
+      %td
+        = product.purchased_on
+      %td
+        = product.purchased_at
+      %td
+        = product.borrowed
+
