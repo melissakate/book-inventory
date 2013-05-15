@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
+    @product.save
     redirect_to products_path
   end
 
@@ -36,8 +37,8 @@ class ProductsController < ApplicationController
   # PUT /products/1.json
   def update
     @product = Product.find(params[:id])
-
-       @product.update_attributes(params[:product])
+     @product.update_attributes(params[:product])
+   redirect_to products_path 
   end
 
   # DELETE /products/1
