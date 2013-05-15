@@ -11,7 +11,7 @@
     %th Purchased_at
     %th Action
   - @products.each do |product|
-    - if !product.borrowed?
+    - if product.borrowed?
       %tr
         %td
           = product.title

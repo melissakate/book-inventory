@@ -28,9 +28,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    @product = Product.find(params[:id])
-    @product.save
-  end
+  @product = Product.find(params[:id])
+  @product.update_attributes(params[:product])
+   end
 
   # POST /products
   # POST /products.json
@@ -42,9 +42,10 @@ class ProductsController < ApplicationController
 
   # PUT /products/1
   def update
-  @product = Product.find(params[:id])
-  @product.update_attributes(borrowed: true) 
-  redirect_to products_path 
+     @product = Product.find(params[:id])
+  @product.borrowed = false
+    @product.save
+ redirect_to products_path 
   end
 
   # DELETE /products/1

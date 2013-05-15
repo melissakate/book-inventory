@@ -28,6 +28,5 @@
         %td
           = product.purchased_at
         %td
-          = link_to "Borrow" , new_product_borrow_history_path
-
+          = link_to "Borrow" , "/products/#{product.id}/borrow_history/new"
 = link_to "Products" , products_path

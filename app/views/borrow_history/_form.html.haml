@@ -1,0 +1,8 @@
+Borrow Form
+%br
+=@product.title
+=@product.description
+
+- form_for [@product,@borrow_history] do |f|
+  = f.text_field :borrowed_by, class: "control-label"
+  = f.submit
