@@ -1,0 +1,30 @@
+%h2
+  = @product.title
+%h4
+  Php. 
+  = @product.price
+  %br
+  by:
+  = @product.author
+Description:
+%br
+= @product.description
+%br
+Publisher:
+%br
+= @product.publisher
+%br
+Purchased On:
+%br
+= @product.purchased_on
+%br
+Purchased At:
+%br
+= @product.purchased_at
+%br
+Burrowed:
+%br
+= @product.borrowed
+%br
+= link_to "Edit Product", edit_product_path(params[:id])
+= link_to "Back" ,products_path
