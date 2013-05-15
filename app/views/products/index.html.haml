@@ -2,18 +2,21 @@
   List of Products
 %br
 = link_to "Add New Product" ,new_product_path  
+|
+= link_to "Unborrowed Books" , unborrowed_path , method: "get"
 %br
 %br
 %table
   %tr
-    %td Title
-    %td Description
-    %td Author
-    %td Publisher
-    %td Price
-    %td Purchased On
-    %td Purchased At
-    %td Borrowed
+    %th Title
+    %th Description
+    %th Author
+    %th Publisher
+    %th Price
+    %th Purchased On
+    %th Purchased At
+    %th Borrowed
+    %th Action
   - @products.each do |product|
     %tr 
       %td 
