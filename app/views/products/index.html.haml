@@ -10,36 +10,36 @@
 %br
 %br
 %table
-  %tr
-    %th Title
-    %th Description
-    %th Author
-    %th Publisher
-    %th Price
-    %th Purchased On
-    %th Purchased At
-    %th Borrowed
-    %th Action
-  - @products.each do |product|
-    %tr 
-      %td 
-        = product.title
-      %td
-        = product.description
-      %td
-        = product.author
-      %td
-        = product.publisher
-      %td
-        = product.price
-      %td
-        = product.purchased_on
-      %td
-        = product.purchased_at
-      %td
-        = product.borrowed
-      %td
-        = link_to 'Show', product
-        = link_to 'Edit', edit_product_path(product.id)
-        = link_to 'Delete', product, method: :destroy, data: {confirm: 'Are you sure?' }
-      %td
+%tr
+  %th Title
+  %th Description
+  %th Author
+  %th Publisher
+  %th Price
+  %th Purchased On
+  %th Purchased At
+  %th Borrowed
+  %th Action
+- @products.each do |product|
+  %tr 
+    %td 
+      = product.title
+    %td
+      = product.description
+    %td
+      = product.author
+    %td
+      = product.publisher
+    %td
+      = product.price
+    %td
+      = product.purchased_on
+    %td
+      = product.purchased_at
+    %td
+      = product.borrowed
+    %td
+      = link_to 'Show', product
+      <!--= link_to 'Edit', edit_product_path(product.id)-->
+      = link_to 'Delete', product, method: :destroy, data: {confirm: 'Are you sure?' }
+    %td
