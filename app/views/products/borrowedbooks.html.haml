@@ -27,7 +27,7 @@
           = product.purchased_on
         %td
           = product.purchased_at
-          %td
-            = link_to "Unborrow" , "#" ,class:"btn"
+        %td
+          = link_to "Unborrow" , "/products/#{product.id}" , method: :put , class:"btn"
 = link_to "Products" , products_path
 

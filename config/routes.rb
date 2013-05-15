@@ -1,7 +1,9 @@
 BookInventory::Application.routes.draw do
   
+
+
   resources :products do 
-    resources :book_history
+    resources :borrow_history
   end
     
   get "/unborrowed" => "products#unborrowed"
