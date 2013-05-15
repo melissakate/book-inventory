@@ -4,9 +4,11 @@ class BorrowHistoryController < ApplicationController
     @product = Product.find(params[:product_id])
     @borrow_history = @product.borrow_history.all
   end
+  
   def new
+    @borrow_history = BorrowHistory.new
     @product = Product.find(params[:product_id])
-    @borrow_history = @product.borrow_history.new
+
 
   end
  def create 
