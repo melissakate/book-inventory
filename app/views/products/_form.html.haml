@@ -1,0 +1,45 @@
+= form_for @product  do |f|
+  .control-group
+    =f.label :title, class: "control-label"
+    .controls
+      = f.text_field :title
+
+  .control-group
+    =f.label :description, class: "control-label"
+    .controls
+      = f.text_field :description, placeholder: "description"
+
+  .control-group
+    =f.label :author, class: "control-label"
+    .controls
+      = f.text_field :author, placeholder: "author"
+
+  .control-group
+    =f.label :publisher, class: "control-label"
+    .controls
+      = f.text_field :publisher, placeholder: "publisher"
+
+  .control-group
+    =f.label :price, class: "control-label"
+    .controls
+      = f.text_field :price
+
+  .control-group
+    =f.label :purchased_on, class: "control-label"
+    .controls
+      = f.text_field :purchased_on
+
+  .control-group
+    =f.label :purchased_at, class: "control-label"
+    .controls
+      = f.text_field :purchased_at
+
+  .control-group
+    =f.label :borrowed, class: "control-label"
+    .controls
+      = f.text_field :borrowed
+
+      %br
+      = f.submit
+
+

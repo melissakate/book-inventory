@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-
+    redirect_to products_path
   end
 
   # PUT /products/1
