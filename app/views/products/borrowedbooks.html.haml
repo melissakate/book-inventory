@@ -1,10 +1,33 @@
 %h1
   List of borrowed Books
-  %td Title
-  %td Description
-  %td Author
-  %td Publisher
-  %td Price
-  %td Purchased_on
-  %td Purchased_at
-  %td Borrowed
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Author
+    %th Publisher
+    %thPrice
+    %th Purchased_on
+    %th Purchased_at
+    %th Action
+  - @products.each do |product|
+    - if !product.borrowed?
+      %tr
+        %td
+          = product.title
+        %td
+          = product.description
+        %td
+          = product.author
+        %td
+          = product.publisher
+        %td
+          = product.price
+        %td
+          = product.purchased_on
+        %td
+          = product.purchased_at
+          %td
+            = link_to "Unborrow" , "#" ,class:"btn"
+= link_to "Products" , products_path
+

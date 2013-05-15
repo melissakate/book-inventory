@@ -5,8 +5,11 @@ class ProductsController < ApplicationController
     @products = Product.all
 
     end
-  
-  
+
+  def borrowedbooks
+    @products = Product.all
+  end
+
   def unborrowed
     @products = Product.all
   end
@@ -23,6 +26,7 @@ def new
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    product.save
   end
 
   # POST /products
