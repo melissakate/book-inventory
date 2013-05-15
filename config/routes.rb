@@ -6,7 +6,7 @@ BookInventory::Application.routes.draw do
     
   get "/unborrowed" => "products#unborrowed"
   get "/borrowedbooks" => "products#borrowedbooks"
-
+  get "/borrowedform" => "products#borrowedform"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

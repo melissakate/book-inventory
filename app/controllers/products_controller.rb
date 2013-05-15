@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
     @products = Product.all
 
     end
+  def borrowedform
+     @products = Product.find(params[:id])
+  end
 
   def borrowedbooks
     @products = Product.all
