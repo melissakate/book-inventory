@@ -32,4 +32,7 @@
         = product.purchased_at
       %td
         = product.borrowed
+      %td
+        = link_to 'Show', product  
+        = link_to 'Edit', edit_product_path(product) 
 
