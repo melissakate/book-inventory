@@ -5,11 +5,7 @@ BookInventory::Application.routes.draw do
   resources :products do 
     resources :borrow_histories
   end
-<<<<<<< HEAD
-  get "/edit" => "products#edit" 
-=======
   get "/updateborrowed/:id" => "products#updateborrowed"
->>>>>>> 34cd080b5f6e36db5092272dac376278a6fdc9bb
   get "/unborrowed" => "products#unborrowed"
   get "/borrowedbooks" => "products#borrowedbooks"
   get "/borrowform/:id" => "products#borrowform"
