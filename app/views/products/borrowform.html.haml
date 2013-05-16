@@ -1,1 +1,23 @@
+%h1
+  Borrow Form
+%form{ :action => "/updateborrowed/#{@products.id}", :method => "get" }
+  %b
+    Title:
+  = @products.title
+  %br
+  
+  %b
+    Description:
+  = @products.description
+  %br
+  %b
+    Autor:
+  = @products.author
+  %br
+  %b
+    Name of Borrower:
+  %br
+  %input{:type =>"text", :name => "borrowed_by"}
+  %br
 
+  %input{:type => "submit", :value => "Submit" }

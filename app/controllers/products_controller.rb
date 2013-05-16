@@ -1,14 +1,25 @@
 class ProductsController < ApplicationController
+
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
 
     end
-  def borrowedform
+  def borrowform
      @products = Product.find(params[:id])
   end
 
+  def updateborrowed
+    @products = Product.find(params[:id])
+    @products.borrowed_by = params[:borrowed_by]
+    @products.borrowed = true
+    @products.save
+    @borrow_history = BorrowHistory.new
+    @borrow_history.borrowed_by = @products.borrowed_by
+    @borrow_history.save
+    redirect_to products_path
+  end
   def borrowedbooks
     @products = Product.all
   end

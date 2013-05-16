@@ -2,6 +2,8 @@ Borrow Form
 %br
 =@product.title
 =@product.description
-
-=@borrow_history.borrowed_by
+%br
+=form_tag @product do |f|
+  =text_field_tag  :placeholder => "#{@product.title}"
+  =@borrow_history.borrowed_by
    

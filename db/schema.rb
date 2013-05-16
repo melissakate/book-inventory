@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515034656) do
+ActiveRecord::Schema.define(:version => 20130516024238) do
 
   create_table "borrow_histories", :force => true do |t|
     t.string   "borrowed_by"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130515034656) do
     t.boolean  "borrowed"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "borrowed_by"
   end
 
 end
