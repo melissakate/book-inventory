@@ -1,5 +1,5 @@
 class AddborrowedbytoProducts < ActiveRecord::Migration
-  def change
+  def up
     add_column :products , :borrowed_by, :string
   end
 
