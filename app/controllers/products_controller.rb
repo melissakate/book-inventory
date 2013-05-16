@@ -34,12 +34,13 @@ class ProductsController < ApplicationController
 
     end
 def new
-    @products = Product.new
+    @product = Product.new
 end
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
-  @product.update_attributes(params[:product])
+    @product.update_attributes(params[:product])
+    @product.save
    end
 
   # POST /products
@@ -53,6 +54,7 @@ end
   # PUT /products/1
   def update
      @product = Product.find(params[:id])
+     
   @product.borrowed = false
     @product.save
  redirect_to products_path 
@@ -61,8 +63,9 @@ end
   # DELETE /products/1
     
   def destroy
-    @products = Product.find(params[:id])
-    @products.destroy
+    products = Product.find(params[:id])
+    products.destroy
+ redirect_to products_path 
 
     end
 end
