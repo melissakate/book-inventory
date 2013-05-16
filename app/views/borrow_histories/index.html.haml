@@ -1,0 +1,19 @@
+%h1
+  Borrow History
+
+
+%table
+  %tr
+    %th
+      Borrower
+    %th
+      Date
+  - @borrow_history.each do |f|
+    %tr
+      %td
+        =f.borrowed_by
+      %td
+        =f.created_at
+= link_to "Back to Products" ,products_path
+
+
