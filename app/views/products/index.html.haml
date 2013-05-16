@@ -1,6 +1,6 @@
 %h1
+
   List of Products
-  %table.table.table-striped
 %br
 = link_to "Add New Product" ,new_product_path  
 |
@@ -9,7 +9,7 @@
 = link_to "Borrowed Books" , borrowedbooks_path , method: "get"
 %br
 %br
-%table
+%table.table.table-striped
   %tr
     %th Title
     %th Description
@@ -40,7 +40,6 @@
         = product.borrowed
       %td
         = link_to 'Show', product  
-        = link_to 'Edit', edit_product_path(product) 
+        = link_to 'Edit', edit_product_path(product), method:"get" 
         = link_to 'Delete', product, method: :destroy, data: {confirm: 'Are you sure?' }
       %td
-        = link_to "Borrow" , new_product_book_history

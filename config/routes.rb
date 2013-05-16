@@ -3,7 +3,7 @@ BookInventory::Application.routes.draw do
   resources :products do 
     resources :book_history
   end
-    
+  get "/edit" => "products#edit" 
   get "/unborrowed" => "products#unborrowed"
   get "/borrowedbooks" => "products#borrowedbooks"
   get "/borrowedform" => "products#borrowedform"

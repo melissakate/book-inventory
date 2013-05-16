@@ -19,41 +19,39 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @product = Product.find(params[:id])
+    @products = Product.find(params[:id])
 
     end
 def new
-    @product = Product.new
+    @products = Product.new
     end
 
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
-    product.save
   end
 
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
-    @product.save
+    @products = Product.new(params[:product])
+    @products.save
     redirect_to products_path
   end
 
   # PUT /products/1
     redirect_to products_path
   def update
-    @product = Product.find(params[:id])
-
-       @product.update_attributes(params[:product])
+    @product = @Product.find params[:id]
+    @product.update_attributes(params[:product])
     redirect_to products_path 
   end
 
   # DELETE /products/1
     
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
+    @products = Product.find(params[:id])
+    @products.destroy
 
     end
 end
