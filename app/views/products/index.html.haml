@@ -39,7 +39,12 @@
       %td
         = product.borrowed
       %td
+<<<<<<< HEAD
         = link_to 'Show', product  
         = link_to 'Edit', edit_product_path(product), method:"get" 
+=======
+        = link_to 'Show', product
+        <!--= link_to 'Edit', edit_product_path(product.id)-->
+>>>>>>> 34cd080b5f6e36db5092272dac376278a6fdc9bb
         = link_to 'Delete', product, method: :destroy, data: {confirm: 'Are you sure?' }
       %td

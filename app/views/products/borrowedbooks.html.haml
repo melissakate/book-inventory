@@ -11,7 +11,7 @@
     %th Purchased_at
     %th Action
   - @products.each do |product|
-    - if !product.borrowed?
+    - if product.borrowed?
       %tr
         %td
           = product.title
@@ -27,7 +27,7 @@
           = product.purchased_on
         %td
           = product.purchased_at
-          %td
-            = link_to "Unborrow" , "#" ,class:"btn"
+        %td
+          = link_to "Return" , "/products/#{product.id}" , method: :put , class:"btn"
 = link_to "Products" , products_path
 

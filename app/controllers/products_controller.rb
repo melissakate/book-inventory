@@ -1,14 +1,25 @@
 class ProductsController < ApplicationController
+
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
 
     end
-  def borrowedform
+  def borrowform
      @products = Product.find(params[:id])
   end
 
+  def updateborrowed
+    @products = Product.find(params[:id])
+    @products.borrowed_by = params[:borrowed_by]
+    @products.borrowed = true
+    @products.save
+    @borrow_history = BorrowHistory.new
+    @borrow_history.borrowed_by = @products.borrowed_by
+    @borrow_history.save
+    redirect_to products_path
+  end
   def borrowedbooks
     @products = Product.all
   end
@@ -24,12 +35,12 @@ class ProductsController < ApplicationController
     end
 def new
     @products = Product.new
-    end
-
+end
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
-  end
+  @product.update_attributes(params[:product])
+   end
 
   # POST /products
   # POST /products.json
@@ -40,11 +51,11 @@ def new
   end
 
   # PUT /products/1
-    redirect_to products_path
   def update
-    @product = @Product.find params[:id]
-    @product.update_attributes(params[:product])
-    redirect_to products_path 
+     @product = Product.find(params[:id])
+  @product.borrowed = false
+    @product.save
+ redirect_to products_path 
   end
 
   # DELETE /products/1
