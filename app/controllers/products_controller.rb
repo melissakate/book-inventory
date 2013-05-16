@@ -63,8 +63,9 @@ end
   # DELETE /products/1
     
   def destroy
-    products = Product.find(params[:id])
-    products.destroy
+
+    @product = Product.find(params[:id])
+    @product.destroy
  redirect_to products_path 
 
     end
