@@ -17,9 +17,12 @@
     %th Author
     %th Publisher
     %th Price
-    %th Purchased On
-    %th Purchased At
-    %th Borrowed
+    - if params[:action] == "index"
+      %th Purchased On
+      %th Purchased At
+      %th Borrowed
+    - elsif params[:action] == "borrowed"
+      %th Borrowed By
     %th Action
   - @products.each do |product|
     %tr 
@@ -33,17 +36,21 @@
         = product.publisher
       %td
         = product.price
-      %td
-        = product.purchased_on
-      %td
-        = product.purchased_at
-      %td
-        = product.borrowed
+      - if params[:action] == "index"
+        %td
+          = product.purchased_on
+        %td
+          = product.purchased_at
+        %td
+          = product.borrowed
+      - elsif params[:action] == "borrowed"
+        %td
+          = product.borrow_histories.last.borrowed_by
       %td
         - if params[:action] == "unborrowed"
-          = link_to "Borrow", "#", class: "btn"
+          = link_to "Borrow", new_product_borrow_history_path(product.id) , class: "btn"
         - elsif params[:action] == "borrowed"
-          = link_to "Return", "#", class: "btn"
+          = link_to "Return", product_borrow_history_path(product.id, product.borrow_histories.last) , method: :put , class: "btn"
         - else
           = link_to 'Show', product
           = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
