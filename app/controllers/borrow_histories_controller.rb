@@ -1,5 +1,11 @@
 class BorrowHistoriesController < ApplicationController
   def index
-    @borrow_history = BorrowHistory.all
+    @product = Product.find(params[:product_id])
+    @borrow_history = @product.borrow_histories.all
+  end
+
+  def show
+    @product = Product.find(params[:product_id])
+    @borrow_history = @product.borrow_histories.all
   end
 end

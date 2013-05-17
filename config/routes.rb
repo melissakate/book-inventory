@@ -2,11 +2,13 @@ BookInventory::Application.routes.draw do
   
 
 
-    resources :borrow_histories
-  resources :products  
-
+  resources :products  do
+    get :borrowed , on: :collection
+    get :unborrowed , on: :collection
+  resources :borrow_histories
+  end
   get "/updateborrowed/:id" => "products#updateborrowed"
-  get "/unborrowed" => "products#unborrowed"
+ # get "/unborrowed" => "products#unborrowed"
   get "/borrowedbooks" => "products#borrowedbooks"
   get "/borrowform/:id" => "products#borrowform"
   # The priority is based upon order of creation:

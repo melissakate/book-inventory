@@ -15,12 +15,12 @@ class ProductsController < ApplicationController
     @products.borrowed_by = params[:borrowed_by]
     @products.borrowed = true
     @products.save
-    @borrow_history = BorrowHistory.new
+    @borrow_history = @products.borrow_histories.new
     @borrow_history.borrowed_by = @products.borrowed_by
     @borrow_history.save
     redirect_to products_path
   end
-  def borrowedbooks
+  def borrowed
     @products = Product.all
   end
 

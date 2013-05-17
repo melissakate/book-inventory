@@ -4,11 +4,10 @@
 %br
 = link_to "Add New Product" ,new_product_path  
 |
-= link_to "Unborrowed Books" , unborrowed_path , method: "get"
+= link_to "Unborrowed Books" , unborrowed_products_path , method: "get"
 |
-= link_to "Borrowed Books" , borrowedbooks_path , method: "get"
+= link_to "Borrowed Books" , borrowed_products_path , method: "get"
 |
-= link_to "Borrow History" , borrow_histories_path
 %br
 %br
 %table.table.table-striped
@@ -41,8 +40,8 @@
       %td
         = product.borrowed
       %td
-        = link_to 'Edit', edit_product_path(product) 
         = link_to 'Show', product
         = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
+        = link_to "Borrow History" , product_borrow_histories_path(product.id)
       %td
 
