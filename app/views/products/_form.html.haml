@@ -1,4 +1,4 @@
-= form_for @product  do |f|
+= form_for @product, html: { class: "form-horizontal" }  do |f|
   .control-group
     =f.label :title, class: "control-label"
     .controls
@@ -33,11 +33,6 @@
     =f.label :purchased_at, class: "control-label"
     .controls
       = f.text_field :purchased_at, placeholder: "purchased at"
-
-  .control-group
-    =f.label :borrowed, class: "control-label"
-    .controls
-      = f.check_box :borrowed
 
       %br
   = f.submit
