@@ -1,31 +1,31 @@
 %h1 Book Inventory
 %h2
-  =@products.title
+  =@product.title
 %h4
   Php. 
-  = @products.price
+  = @product.price
   %br
   by:
-  = @products.author
+  = @product.author
 Description:
 %br
-= @products.description
+= @product.description
 %br
 Publisher:
 %br
-= @products.publisher
+= @product.publisher
 %br
 Purchased On:
 %br
-= @products.purchased_on
+= @product.purchased_on
 %br
 Purchased At:
 %br
-= @products.purchased_at
+= @product.purchased_at
 %br
 Borrowed:
 %br
-= @products.borrowed
+= @product.borrowed
 %br
 = link_to "Edit Product", edit_product_path(params[:id])
 = link_to "Back" ,products_path
