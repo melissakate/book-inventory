@@ -40,8 +40,12 @@
       %td
         = product.borrowed
       %td
-        = link_to 'Show', product
-        = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
-        = link_to "Borrow History" , product_borrow_histories_path(product.id)
-      %td
+        - if params[:action] == "unborrowed"
+          = link_to "Borrow", "#", class: "btn"
+        - elsif params[:action] == "borrowed"
+          = link_to "Return", "#", class: "btn"
+        - else
+          = link_to 'Show', product
+          = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
+          = link_to "Borrow History" , product_borrow_histories_path(product.id)
 
