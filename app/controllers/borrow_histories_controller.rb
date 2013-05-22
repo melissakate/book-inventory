@@ -8,6 +8,7 @@ class BorrowHistoriesController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @borrow_history = @product.borrow_histories.new(params[:id])
+    @product.update_attributes(:borrowed => true)
     redirect_to borrowed_products_path
   end
   
