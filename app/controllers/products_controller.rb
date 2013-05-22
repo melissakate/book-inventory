@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
   # example: nag-fail yung validation
   def create
     @product = Product.new(params[:product])
+    @product.borrowed = false
     @product.save
     redirect_to products_path
   end
