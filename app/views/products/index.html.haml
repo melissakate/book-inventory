@@ -75,6 +75,7 @@
         - elsif params[:action] == "borrowed"
           = link_to "Return", product_borrow_history_path(product.id, product.borrow_histories.last) , method: :put , class: "btn"
         - else
+          = link_to 'Edit', product, method: "get"
           = link_to 'Show', product
           = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
           = link_to "Borrow History" , product_borrow_histories_path(product.id)
