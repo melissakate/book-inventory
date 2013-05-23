@@ -15,10 +15,11 @@
 
   %br
 =form_for [@product, @borrow_history] , html: { class: "form-horizontal" } do |f|
+
   %h5
     Borrowed by:
-  = f.text_field :borrowed_by , name: "borrowed_by"
+  = f.text_field :borrowed_by , name: "borrowed_by", html: { :class => "input-large"}
   %br
   %br
-  =f.submit
+  =f.submit 
 = link_to "Back to List of Unborrowed Books" , unborrowed_products_path

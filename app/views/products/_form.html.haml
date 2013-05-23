@@ -1,3 +1,8 @@
+.row-fluid
+  .span12
+    .well.well-large
+      %h1
+        Add Book
 = form_for @product, html: { class: "form-horizontal" }  do |f|
   .control-group
     =f.label :title, class: "control-label"
@@ -7,7 +12,7 @@
   .control-group
     =f.label :description, class: "control-label"
     .controls
-      = f.text_field :description, placeholder: "description"
+      = f.text_area :description, placeholder: "description", rows: 5
 
   .control-group
     =f.label :author, class: "control-label"
