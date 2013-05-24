@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
  */
+#banner {
+  background-image: banner.jpg;
+  padding: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  text-align: center;
+}
+
+body {
+  background-image: url(back3.jpg);
+    background-size: 50% auto;
+      -o-background-size: 50% auto;
+        -webkit-background-size: 100% auto;
+          background-origin: border;
+            background-repeat: no-repeat;
+              margin-top: 30%;;
+}
+
