@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .navbar.navbar-inverse
   .navbar-inner
     %a.brand Book Inventory
@@ -84,4 +85,54 @@
               %li.divider
               %li
                 = link_to "Borrow History" , product_borrow_histories_path(product.id)
+=======
+%br
+  .well.well-large
+    %h1
+      List of Products
+  %br
+  .well.well-large
+    = link_to "Add New Product" ,new_product_path  
+    |
+    = link_to "Unborrowed Books" , unborrowed_path , method: "get"
+    |
+    = link_to "Borrowed Books" , borrowedbooks_path , method: "get"
+    |
+    = link_to "Borrow History" , borrow_histories_path
+    %br
+    %br
+      %table.table.table-condensed
+        %tr
+          %th Title
+          %th Description
+          %th Author
+          %th Publisher
+          %th Price
+          %th Purchased On
+          %th Purchased At
+          %th Borrowed
+          %th Action
+        - @products.each do |product|
+          %tr 
+            %td 
+              = product.title
+            %td
+              = product.description
+            %td
+              = product.author
+            %td
+              = product.publisher
+            %td
+              = product.price
+            %td
+              = product.purchased_on
+            %td
+              = product.purchased_at
+            %td
+              = product.borrowed
+            %td
+              = link_to 'Edit', edit_product_path(product) 
+              = link_to 'Show', product
+              = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
+>>>>>>> 429292ed509442abddaebaa1969c4c6c1aea1303
 
