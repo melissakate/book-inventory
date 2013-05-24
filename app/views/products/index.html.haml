@@ -28,10 +28,17 @@
           - else
             %li
               = link_to "Borrowed Books" , borrowed_products_path , method: "get"
+<<<<<<< HEAD
 %body
 %h1
 
   List of Products
+=======
+%header{:id => "overview" , :class => "jumbotron subhead"}
+  .container
+    %h1
+      List of Products
+>>>>>>> 3a2a65193d7f50a01de238ef9e3258cd764624c9
 %br
 %table.table.table-striped
   %tr
@@ -44,8 +51,6 @@
       %th Purchased On
       %th Purchased At
       %th Borrowed
-    - elsif params[:action] == "borrowed"
-      %th Borrowed By
     %th Action
   - @products.each do |product|
     %tr 
@@ -66,17 +71,31 @@
           = product.purchased_at
         %td
           = product.borrowed
-      - elsif params[:action] == "borrowed"
-        %td
-          = product.borrow_histories.last.borrowed_by
       %td
         - if params[:action] == "unborrowed"
           = link_to "Borrow", new_product_borrow_history_path(product.id) , class: "btn"
         - elsif params[:action] == "borrowed"
           = link_to "Return", product_borrow_history_path(product.id, product.borrow_histories.last) , method: :put , class: "btn"
         - else
+<<<<<<< HEAD
           = link_to 'Edit', edit_product_path(product) 
           = link_to 'Show', product
           = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
           = link_to "Borrow History" , product_borrow_histories_path(product.id)
+=======
+          .btn-group
+            %a{:class => "btn btn-primary dropdown-toggle" ,"data-toggle" => "dropdown" }
+              Action
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'Show', product
+              %li
+                = link_to 'Edit', edit_product_path(product.id), method: "get"
+              %li
+                = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
+              %li.divider
+              %li
+                = link_to "Borrow History" , product_borrow_histories_path(product.id)
+>>>>>>> 3a2a65193d7f50a01de238ef9e3258cd764624c9
 
