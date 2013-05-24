@@ -40,13 +40,14 @@ class ProductsController < ApplicationController
     redirect_to products_path 
   end
 
-  def borrowed
-    @products = Product.borrowed
+  def fborrowed
+    @products = Product.mborrowed
     render "index"
   end
 
-  def unborrowed
-    @products = Product.unborrowed
+  def funborrowed
+
+    @products = Product.munborrowed
     render "index"
   end
 
