@@ -44,8 +44,6 @@
       %th Purchased On
       %th Purchased At
       %th Borrowed
-    - elsif params[:action] == "borrowed"
-      %th Borrowed By
     %th Action
   - @products.each do |product|
     %tr 
@@ -66,9 +64,6 @@
           = product.purchased_at
         %td
           = product.borrowed
-      - elsif params[:action] == "borrowed"
-        %td
-          = product.borrow_histories.last.borrowed_by
       %td
         - if params[:action] == "unborrowed"
           = link_to "Borrow", new_product_borrow_history_path(product.id) , class: "btn"
