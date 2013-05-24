@@ -3,6 +3,14 @@ class Product < ActiveRecord::Base
 
   has_many :borrow_histories
 
-  scope :borrowed, where(borrowed: true)
-  scope :unborrowed, where(borrowed: false)
+  def borrowed
+    # if merong borrow_history na walang returned_on
+    borrow_histories.where(:returned_on => nil)
+    borrow_histories.collect do |bh|
+      bh.product
+    end
+  end
+
+  def unborrowed
+  end
 end
