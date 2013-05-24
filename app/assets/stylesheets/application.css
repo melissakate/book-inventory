@@ -22,8 +22,8 @@
 
 body {
   background-image: url(back3.jpg);
-    background-size: 50% auto;
-      -o-background-size: 50% auto;
+    background-size: 100% auto;
+      -o-background-size: 100% auto;
         -webkit-background-size: 100% auto;
           background-origin: border;
             background-repeat: no-repeat;
