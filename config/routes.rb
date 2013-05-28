@@ -3,8 +3,8 @@ BookInventory::Application.routes.draw do
   root to: "products#index"
 
   resources :products  do
-    get :fborrowed , on: :collection
-    get :funborrowed , on: :collection    
+    get :borrowed , on: :collection
+    get :unborrowed , on: :collection    
     resources :borrow_histories , except: [:show , :edit , :destroy ]
   end
 

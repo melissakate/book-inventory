@@ -18,16 +18,16 @@
               = link_to "Add Product" ,new_product_path 
           - if params[:action] == "funborrowed"
             %li.active
-              = link_to "Unborrowed Books" , funborrowed_products_path , method: "get"
+              = link_to "Unborrowed Books" , unborrowed_products_path , method: "get"
           - else
             %li
-              = link_to "Unborrowed Books" , funborrowed_products_path , method: "get"
+              = link_to "Unborrowed Books" , unborrowed_products_path , method: "get"
           - if params[:action] == "fborrowed"
             %li.active
-              = link_to "Borrowed Books" , fborrowed_products_path , method: "get"
+              = link_to "Borrowed Books" ,borrowed_products_path , method: "get"
           - else
             %li
-              = link_to "Borrowed Books" , fborrowed_products_path , method: "get"
+              = link_to "Borrowed Books" , borrowed_products_path , method: "get"
 
 %header{:id => "overview" , :class => "jumbotron subhead"}
   .container
@@ -66,9 +66,9 @@
         %td
           = product.borrowed
       %td
-        - if params[:action] == "funborrowed"
+        - if params[:action] == "unborrowed"
           = link_to "Borrow", new_product_borrow_history_path(product.id) , class: "btn"
-        - elsif params[:action] == "fborrowed"
+        - elsif params[:action] == "borrowed"
           = link_to "Return", product_borrow_history_path(product.id, product.borrow_histories.last) , method: :put , class: "btn"
         - else
           .btn-group

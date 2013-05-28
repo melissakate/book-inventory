@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(:version => 20130524044608) do
 
   create_table "borrow_histories", :force => true do |t|
     t.string   "borrowed_by"
-    t.date     "returned_on"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "product_id"
+    t.date     "returned_on"
   end
 
   create_table "products", :force => true do |t|

@@ -40,14 +40,15 @@ class ProductsController < ApplicationController
     redirect_to products_path 
   end
 
-  def fborrowed
+  def borrowed
     bomb = BorrowHistory.where(returned_on: nil).all 
     @products = bomb.collect{|bh| bh.product}
     render "index"
   end
 
-  def funborrowed    
-    
+  def unborrowed    
+    bomb = BorrowHistory.where.("returned_on NOT NULL").all
+    @products = bomb.collect{|bh| bh.product}
     render "index"
   end
 
