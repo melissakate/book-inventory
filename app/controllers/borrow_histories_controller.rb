@@ -11,13 +11,15 @@ class BorrowHistoriesController < ApplicationController
     @borrow_history.borrowed_by = params[:borrowed_by]
     @product.update_attributes(:borrowed => true)
     @borrow_history.save
-    redirect_to borrowed_products_path
+    redirect_to fborrowed_products_path
   end
   
   def update
     @product = Product.find(params[:product_id])
     @product.update_attributes(:borrowed => false)    
-    redirect_to unborrowed_products_path
+    @borrow_histories = @product.borrow_histories.find(params[:id])
+    @borrow_histories.update_attributes(:returned_on => Time.now)
+    redirect_to funborrowed_products_path
   end
 
   def index

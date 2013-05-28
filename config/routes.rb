@@ -4,8 +4,7 @@ BookInventory::Application.routes.draw do
 
   resources :products  do
     get :fborrowed , on: :collection
-    get :funborrowed , on: :collection
-    
+    get :funborrowed , on: :collection    
     resources :borrow_histories , except: [:show , :edit , :destroy ]
   end
 

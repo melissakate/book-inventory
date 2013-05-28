@@ -8,12 +8,16 @@
       Borrower
     %th
       Date
+    %th
+      Returned On
   - @borrow_history.each do |f|
     %tr
       %td
         =f.borrowed_by
       %td
         =f.created_at
+      %td
+        =f.returned_on
 = link_to "Back to Products" ,products_path
 
 

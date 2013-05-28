@@ -3,17 +3,11 @@ class Product < ActiveRecord::Base
 
   has_many :borrow_histories
 
-  def mborrowed
-      borrow_histories.where(:returned_on => nil)
-    borrow_histories.collect do |bn|
-     bn.product
-    end
+  def self.mborrowed
+    borrowed = BorrowHistory.where(returned_on: nil).all
+    @products = borrowed.collect do |bh| bh.product end
   end
     
   def munborrowed
-    borrow_histories.where(:returned_on !=  nil)
-    value.collect do |bn|
-    bn.product_id
-    end
   end
 end

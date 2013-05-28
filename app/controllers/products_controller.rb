@@ -41,13 +41,13 @@ class ProductsController < ApplicationController
   end
 
   def fborrowed
-    @products = Product.mborrowed
+    bomb = BorrowHistory.where(returned_on: nil).all 
+    @products = bomb.collect{|bh| bh.product}
     render "index"
   end
 
-  def funborrowed
-
-    @products = Product.munborrowed
+  def funborrowed    
+    
     render "index"
   end
 
