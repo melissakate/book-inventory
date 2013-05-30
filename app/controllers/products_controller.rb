@@ -41,14 +41,19 @@ class ProductsController < ApplicationController
   end
 
   def borrowed
-    bomb = BorrowHistory.where(returned_on: nil).all 
+    bomb = BorrowHistory.where(returned_on: nil)
     @products = bomb.collect{|bh| bh.product}
     render "index"
   end
 
   def unborrowed    
-    bomb = BorrowHistory.where.("returned_on NOT NULL").all
-    @products = bomb.collect{|bh| bh.product}
+    products_without_borrow_histories = Product.all.collect{ |p| p.borrow_histories.blank? ? nil : p }.compact
+    products_with_borrow_histories = Product.all.collect{ |p| p.borrow_histories.blank? ? p : nil }.compact
+
+    product_ids_of_returned_books = BorrowHistory.select('DISTINCT product_id').where('returned_on IS NOT NULL').collect{ |bh| bh.id }
+    returned_products = Product.where(id: product_ids_of_returned_books)
+
+    @products = products_without_borrow_histories + returned_products + products_with_borrow_histories
     render "index"
   end
 

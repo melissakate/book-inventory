@@ -34,55 +34,57 @@
     %h1
       List of Products
 %br
-%table.table.table-striped
-  %tr
-    %th Title
-    %th Description
-    %th Author
-    %th Publisher
-    %th Price
-    - if params[:action] == "index"
-      %th Purchased On
-      %th Purchased At
-      %th Borrowed
-    %th Action
-  - @products.each do |product|
-    %tr 
-      %td 
-        = product.title
-      %td
-        = product.description
-      %td
-        = product.author
-      %td
-        = product.publisher
-      %td
-        = product.price
+.well.well-small
+  %table.table.table-striped
+    %tr
+      %th Title
+      %th Description
+      %th Author
+      %th Publisher
+      %th Price
       - if params[:action] == "index"
+        %th Purchased On
+        %th Purchased At
+      - elsif params[:action] == "borrowed"
+        %th Borrowed By
+      %th Action
+    - @products.each do |product|
+      %tr 
+        %td 
+          = product.title
         %td
-          = product.purchased_on
+          = product.description
         %td
-          = product.purchased_at
+          = product.author
         %td
-          = product.borrowed
-      %td
-        - if params[:action] == "unborrowed"
-          = link_to "Borrow", new_product_borrow_history_path(product.id) , class: "btn"
-        - elsif params[:action] == "borrowed"
-          = link_to "Return", product_borrow_history_path(product.id, product.borrow_histories.last) , method: :put , class: "btn"
-        - else
-          .btn-group
-            %a{:class => "btn btn-primary dropdown-toggle" ,"data-toggle" => "dropdown" }
-              Action
-              %span.caret
-            %ul.dropdown-menu
-              %li
-                = link_to 'Show', product
-              %li
-                = link_to 'Edit', edit_product_path(product.id), method: "get"
-              %li
-                = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
-              %li.divider
-              %li
-                = link_to "Borrow History" , product_borrow_histories_path(product.id)
+          = product.publisher
+        %td
+          = product.price
+        - if params[:action] == "index"
+          %td
+            = product.purchased_on
+          %td
+            = product.purchased_at
+        %td
+          - if params[:action] == "unborrowed"
+            = link_to "Borrow", new_product_borrow_history_path(product.id) , class: "btn"
+          - elsif params[:action] == "borrowed"
+            = product.borrow_histories.last.borrowed_by
+            %td
+              = link_to "Return", product_borrow_history_path(product.id, product.borrow_histories.last) , method: :put , class: "btn"
+          - else
+            .btn-group
+              %a{:class => "btn btn-primary dropdown-toggle" ,"data-toggle" => "dropdown" }
+                Action
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to 'Show', product
+                %li
+                  = link_to 'Edit', edit_product_path(product.id), method: "get"
+                %li
+                  = link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?' }
+                %li.divider
+                %li
+                  = link_to "Borrow History" , product_borrow_histories_path(product.id)
 
