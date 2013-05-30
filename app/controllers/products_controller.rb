@@ -24,8 +24,14 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     @product.borrowed = false
-    @product.save
-    redirect_to products_path
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to products_path, notice: "Product successfully created!"}
+      else
+        format.html { render action: "new" }
+        format.json { render json: @product.errors, state: :unprocessable_entity}
+      end
+    end
   end
 
   def update

@@ -1,34 +1,3 @@
-.navbar.navbar-inverse
-  .navbar-inner
-    %a.brand Book Inventory
-    .container
-      %a{:class => "btn btn-navbar", "data-toggle" => 'collapse', "data-target" => ".nav-collapse"}
-        %ul.nav
-          - if params[:action] == "index"
-            %li.active
-              = link_to "Products" , products_path, html: {class: "btn"}          
-          - else
-            %li 
-              = link_to "Products" , products_path, html: {class: "btn"}
-          - if params[:action] == "new"
-            %li.active
-              = link_to "Add Product" ,new_product_path
-          - else
-            %li
-              = link_to "Add Product" ,new_product_path 
-          - if params[:action] == "funborrowed"
-            %li.active
-              = link_to "Unborrowed Books" , unborrowed_products_path , method: "get"
-          - else
-            %li
-              = link_to "Unborrowed Books" , unborrowed_products_path , method: "get"
-          - if params[:action] == "fborrowed"
-            %li.active
-              = link_to "Borrowed Books" ,borrowed_products_path , method: "get"
-          - else
-            %li
-              = link_to "Borrowed Books" , borrowed_products_path , method: "get"
-
 %header{:id => "overview" , :class => "jumbotron subhead"}
   .container
     %h1

@@ -1,40 +1,51 @@
-= form_for @product, html: { class: "form-horizontal" }  do |f|
-  .control-group
-    =f.label :title, class: "control-label"
-    .controls
-      = f.text_field :title, placeholder: "title"
+.well.well-small
+  = form_for @product, html: { class: "form-horizontal" }  do |f|
+    - if @product.errors.any?
+      .alert 
+        %button.close{:type => "button", "data-dismiss" => "alert"} &times;      
+        %h4
+          Warning!
+        - @r =  @product.errors.full_messages
+        %ul
+          - @r.each do |t|
+            %li
+              = t
+    .control-group
+      =f.label :title, class: "control-label"
+      .controls
+        = f.text_field :title, placeholder: "title"
+  
+    .control-group
+      =f.label :description, class: "control-label"
+      .controls
+        = f.text_area :description, placeholder: "description", rows: 5
+  
+    .control-group
+      =f.label :author, class: "control-label"
+      .controls
+        = f.text_field :author, placeholder: "author"
+  
+    .control-group
+      =f.label :publisher, class: "control-label"
+      .controls
+        = f.text_field :publisher, placeholder: "publisher"
+  
+    .control-group
+      =f.label :price, class: "control-label"
+      .controls
+        = f.text_field :price, placeholder: "price"
+  
+    .control-group
+      =f.label :purchased_on, class: "control-label"
+      .controls
+        = f.text_field :purchased_on, placeholder: "purchased on"
+  
+    .control-group
+      =f.label :purchased_at, class: "control-label"
+      .controls
+        = f.text_field :purchased_at, placeholder: "purchased at"
+  
+        %br
 
-  .control-group
-    =f.label :description, class: "control-label"
-    .controls
-      = f.text_area :description, placeholder: "description", rows: 5
-
-  .control-group
-    =f.label :author, class: "control-label"
-    .controls
-      = f.text_field :author, placeholder: "author"
-
-  .control-group
-    =f.label :publisher, class: "control-label"
-    .controls
-      = f.text_field :publisher, placeholder: "publisher"
-
-  .control-group
-    =f.label :price, class: "control-label"
-    .controls
-      = f.text_field :price, placeholder: "price"
-
-  .control-group
-    =f.label :purchased_on, class: "control-label"
-    .controls
-      = f.text_field :purchased_on, placeholder: "purchased on"
-
-  .control-group
-    =f.label :purchased_at, class: "control-label"
-    .controls
-      = f.text_field :purchased_at, placeholder: "purchased at"
-
-      %br
-  = f.submit
-
+    = f.submit
 
