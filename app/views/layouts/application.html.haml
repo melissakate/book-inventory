@@ -30,14 +30,14 @@
                           = link_to "Add Product" ,new_product_path 
                       - if params[:action] == "funborrowed"
                         %li.active
-                          = link_to "Unborrowed Books" , unborrowed_products_path , method: "get"
+                          = link_to "Unborrowed Books" , funborrowed_products_path , method: "get"
                       - else
                         %li
-                          = link_to "Unborrowed Books" , unborrowed_products_path , method: "get"
+                          = link_to "Unborrowed Books" , funborrowed_products_path , method: "get"
                       - if params[:action] == "fborrowed"
                         %li.active
-                          = link_to "Borrowed Books" ,borrowed_products_path , method: "get"
+                          = link_to "Borrowed Books" ,fborrowed_products_path , method: "get"
                       - else
                         %li
-                          = link_to "Borrowed Books" , borrowed_products_path , method: "get"  
+                          = link_to "Borrowed Books" , fborrowed_products_path , method: "get"  
             = yield
