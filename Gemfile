@@ -4,7 +4,11 @@ gem 'rails', '3.2.13'
 gem 'jquery-rails'
 gem 'haml-rails'
 
-gem 'sqlite3', group: [:development, :test]
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'sqlite3'
+end
+
 gem 'pg', group: :production
 
 group :assets do
